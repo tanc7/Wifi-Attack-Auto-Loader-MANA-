@@ -1,0 +1,16 @@
+DISCLAIMER:
+
+This python app should ONLY be used with...
+1. A VM installation of Kali Linux
+or...
+2. A persistent USB installation of Kali Linux
+
+Due to conflicts between Mana-Toolkit/DNSMasq and Gnome-Network-Manager...
+Attempting a setup to get Mana working on a permanent install of Kali Linux may break your install!
+
+Specifically, the networking settings.
+
+Therefore it is highly recommended that you use this on a disposable copy of Kali instead!
+
+To install into your Kali distro of choice, just drag and drop the entire folder into /root directory
+Then run the required setups
