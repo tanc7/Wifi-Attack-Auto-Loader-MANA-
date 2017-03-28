@@ -109,9 +109,8 @@ def fern_wifi_cracker():
         os.system("gnome-terminal -e 'bash -c \"fern-wifi-cracker; exec bash\"'")
         main()
 def aircrack_suite():
-    print colored('This section has not yet been implemented yet, for the most part, many of aircrack abilities can be done via Fern-Wifi-Cracker','red','on_white')
+    os.system("gnome-terminal -e 'bash -c \"python /root/WifiAttackAutoloaderProject/CrackHead.py; exec bash\"'")
     main()
-
 
 def main():
     print colored('MAIN MENU','red','on_white')
