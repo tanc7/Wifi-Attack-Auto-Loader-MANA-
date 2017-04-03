@@ -6,6 +6,7 @@ import socket
 import operator
 from termcolor import colored
 import sys
+import time
 sys.stdout.write("\x1b[8;{rows};{cols}t".format(rows=64, cols=200)) # sets window to full screen
 
 os.system('cat /root/WifiAttackAutoloaderProject/autoloaderBanner.txt')
@@ -28,7 +29,6 @@ def step_2_check():
         print colored('Starting Mana','red','on_white')
         #os.system('/usr/share/mana-toolkit/run-mana/start-nat-full.sh')
         os.system("gnome-terminal -e 'bash -c \"/usr/share/mana-toolkit/run-mana/start-nat-full.sh; exec bash\"'")
-
         mana_toolkit()
 
     else:
@@ -67,8 +67,13 @@ def mana_toolkit():
     elif opt_Choice == "4":
         os.system("gnome-terminal -e 'bash -c \"/usr/share/mana-toolkit/run-mana/firelamb-view.sh; exec bash\"'")
     elif opt_Choice == "5":
-        os.system("gnome-terminal -e 'bash -c \"tcpdump -i wlan1 -w /root/Desktop/tcpdumpTemporaryCaptureFile.pcap; exec bash\"'")
-
+        timestr = time.strftime("%Y%m%d-%H%M%S")
+        basic_Filename = "/root/WifiAttackAutoloaderProject/logs/TCPDump_"
+        modified_Filename = basic_Filename + timestr + '.pcap'
+        tcp_Dump_String = "gnome-terminal -e 'bash -c \"sudo tcpdump -i wlan1 -w {0}; exec bash\"'".format(
+            modified_Filename
+        )
+        os.system(tcp_Dump_String)
     elif opt_Choice == "999":
         os.system('/root/WifiAttackAutoloaderProject/bring_Interfaces_Down.sh')
         os.system('/root/WifiAttackAutoloaderProject/bring_Interfaces_Up.sh')
